@@ -1,0 +1,63 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+.informational {
+    margin: 5px;
+    background-color: cornflowerblue;
+    width: 40%;
+    padding: 5px;
+    height: 30px;
+    color: darkblue;
+}
+
+.informational-info {
+    border-radius: 5px;
+    border:2px solid lightgray;
+}
+.success {
+    margin:5px;
+    background-color: palegreen;
+    width: 40%;
+    padding: 5px;
+    height: 30px;
+    color: darkgreen;
+    border-radius: 5px;
+    border:2px solid lightgray;
+}
+.success-info{
+    border-radius: 5px;
+    border:2px solid lightgray;
+}
+
+.warning {
+    margin:5px;
+    background-color: yellow;
+    width: 40%;
+    padding: 5px;
+    height: 30px;
+    color: darkkhaki;
+}
+.warning-info{
+    border-radius: 5px;
+    border:2px solid lightgray;
+}
+
+.error {
+    margin:5px;
+    background-color: lightpink;
+    width: 40%;
+    padding: 5px;
+    height: 30px;
+    color: darkred;
+}
+.error-info{
+    border-radius: 5px;
+    border:2px solid lightgray;
+}
+
+

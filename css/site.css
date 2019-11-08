@@ -4,24 +4,23 @@
     text-align:center;
 
 }
-h2 {
+h2, h3, h4, h5, h6 {
     color:sienna;
     text-decoration: underline;
 }
-body {
+#body {
     background-color:peachpuff;
-    font-style: oblique;
+    font-family:sans-serif;
     background-image: url(https://mdn.mozillademos.org/files/11307/bubbles.png);
+     /*background-image: url("../img/sunset.jpeg") */
+/*    background-repeat: no-repeat */
+/*    background-size:auto */
 }
 
-ul li::before {
-    content: "\2022";
-    color: red;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+ul  {
+    list-style: square;
 }
+
 table tr td {
     margin: 40px;
     padding: 40px;
@@ -32,7 +31,15 @@ th {
     color:white;
     border-bottom: 1px solid #000;
 }
-
+a:link{
+   color:lawngreen;
+}
+a:visited{
+    color:coral;
+}
+a:hover{
+    color:crimson;
+}
 footer {
     margin: 40px;
 }
