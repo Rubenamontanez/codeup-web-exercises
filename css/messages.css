@@ -60,4 +60,19 @@ body, html {
     border:2px solid lightgray;
 }
 
+/* examples used for class
+.message {padding: .75em;
+border: 1px solid lightgrey;
+margin: .5em auto;
+border-radius: .3em
+width:80%;
+}
+
+.message-info{
+color:#372f93
+background-color: #cddeff
+}
+
+*/
+
 
