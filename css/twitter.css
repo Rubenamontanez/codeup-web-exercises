@@ -81,8 +81,8 @@ a {
 }
 .media{
     width:100%;
-    background-color:whitesmoke;
-    border-bottom:1px solid var(--main-bg);
+    background-color:var(--light-bg);
+    border-bottom: 1px solid var(--separator-color);
     padding:.5em;
     overflow: auto;
 }
@@ -100,6 +100,7 @@ a {
 }
 .profile-items{
     list-style: none;
+    padding:0em;
 }
 
 
