@@ -1,56 +1,59 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
 }
+
 nav {
-    background: grey;
+    background: lightgray;
     display: flex;
-    height:2em;
 }
+
 ul {
+    display: flex;
     list-style: none;
     width: 100%;
-    padding: 0;
+    padding: .5em;
     margin: 0;
-    display: flex;
     align-items: center;
     font-size: .5em;
-    font-weight: bold;
-
+    font-weight: 900;
+    font-family: 'Work Sans', sans-serif;
 }
 
 nav a {
     display: inline-block;
     text-decoration: none;
     color: black;
-    font-family: Verdana;
-    padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
+    padding: 1em;
 }
+
 nav a:hover {
     color: blue;
 }
-nav ul li:nth-child(4){
-    flex-grow: .2;
-}
 nav ul li:nth-child(5){
-    align-items: flex-start;
+    position: absolute;
+    left: 46vw;
     font-size: 3em;
     padding: 0 .2em;
     font-weight: normal;
-    margin-left: auto;
-    margin-right: auto;
+    font-family: 'Montserrat', sans-serif;
+    z-index: -1;
+
+
 }
 nav ul li:nth-child(6){
     margin-left: auto;
 
+
 }
 nav ul li:nth-child(7){
-    padding:1em;
+    /*padding:1em;*/
 }
 nav ul li:nth-child(8){
-    padding:1em;
+    /*padding:1em;*/
 }
 nav ul li:nth-child(9){
     padding:1em;

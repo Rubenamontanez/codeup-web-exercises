@@ -68,8 +68,7 @@ a {
 .container {
     /* This is a flex container */
     display: flex;
-    flex-display: row;
-    align-items: cente0-;
+    align-items: center;
 
 }
 
