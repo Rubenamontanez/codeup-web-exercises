@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css grid layout 1</title>
+    <style>
+        *{
+             box-sizing: border-box;
+         }
+        body{
+            margin: 0;
+        }
+        div{
+            display: grid;
+            grid-gap: 1em;
+            grid-template-columns: 20% 1fr 15%;
+            grid-template-rows: 15% 1fr 15% ;
+            height: 100vh
+        }
+        :root{
+            --main-bg-color: yellow;
+            --main-padding: 1em;
+        }
+        #header{
+            grid-area: 1/ 1 / 2/ 4;
+            background-color: var(--main-bg-color);
+            padding: var(--main-padding);
+        }
+        #nav{
+            grid-area: 2 / 1 / 4 / 2;
+             background-color: var(--main-bg-color);
+             padding: var(--main-padding);
+         }
+        #article{
+            grid-area: 2/ 3 / 2 / 2;
+            background-color: var(--main-bg-color);
+            padding: var(--main-padding);
+        }
+        #ads{
+            grid-area: 2 / 3 / 3 / 4;
+            background-color: var(--main-bg-color);
+            padding: var(--main-padding);
+        }
+        #footer{
+            grid-area: 3 / 2 / 4 / 4;
+            background-color: var(--main-bg-color);
+            padding: var(--main-padding);
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <header id="header">
+            <p>Header</p>
+        </header>
+        <nav id="nav">
+            <p>Nav</p>
+        </nav>
+        <article id="article">
+            <p>Article</p>
+        </article>
+        <section id="ads">
+            <p>Ads</p>
+        </section>
+        <footer id="footer">
+            <p>Footer</p>
+        </footer>
+    </div>
+
+
+</body>
+</html>
