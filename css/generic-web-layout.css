@@ -2,15 +2,16 @@
     box-sizing: border-box;
 }
 body{
-    background: white;
+
     color: black;
     font-family: 'Roboto', sans-serif;
 }
 .wrapper {
     margin: 0;
+    padding:0;
     display: grid;
     height:100vh;
-    width: 100vw;
+    width: 100vw;git
     grid-template-columns:16% 54% 30%;
     grid-template-rows:5% 70% 10% 10% 5%;
 }
@@ -190,3 +191,5 @@ a:hover {
 .bottom-footer p{
     margin-left: 10px;
 }
+@media screen and (min-width:768px) { /* ... */ }
+@media screen and (min-width:992px) { /* ... */ }
