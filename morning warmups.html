@@ -10,7 +10,7 @@
 //       Nov.6 javascript pushups//
         function hello(){
         return "Hello, World!";
-    };
+    }
          console.log(hello());
 
     //     Nov.7 javascript pushups //
@@ -27,28 +27,32 @@
         function addFour(x,y,z,w) {
             return (x+y+z+w);
         }
-        console.log(addFour(1,2,3,4))
+        console.log(addFour(1,2,3,4));
         // string will cause other issues especially at the beginning. caused var to conc. //
-        console.log(addFour("17",100,2,23))
-        console.log(addFour(17,100,2,23))
+        console.log(addFour("17",100,2,23));
+        console.log(addFour(17,100,2,23));
     //    Nov. 13 exercise
         function calculateRectangleArea(width,length){
             return (width * length)
         }
         console.log(calculateRectangleArea(5,5));
        // Nov. 14 exercise //
-        var animals= ["dog", "cat", "bird", "fish"]
+        var animals= ["dog", "cat", "bird", "fish"];
 
         function firstItem(inputArray){
-            return inputArray[1]
+            return inputArray[0]
         }
-        console.log(firstItem(["dog", "cat", "bird", "fish"]))
+        console.log(firstItem(["dog", "cat", "bird", "fish"]));
     //    Nov. 15 exercises
-        var arrayLength = function (inputArray) {
+        var arrayLength = function (inputArray){
             return  (inputArray.length)
         }
-        console.log(arrayLength(["dog", "cat", "bird", "fish"]))
-
+        console.log(arrayLength(["dog", "cat", "bird", "fish"]));
+    //  Nov. 18 exercises
+        function lastItem(inputArray) {
+            return inputArray[inputArray.length-1];
+        }
+        console.log(lastItem(["dog", "cat", "bird", "fish"]));
     </script>
     </body>
 </html>
