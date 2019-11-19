@@ -2,12 +2,12 @@
 @media all and (max-width: 524px){
     *{
         box-sizing: border-box;
-        /*margin:0;*/
+        margin:0;
         padding:0;
     }
     body {
     color: black;
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     margin:0;
@@ -24,7 +24,6 @@ img{
     align-items: center;
     justify-content: center;
     padding: 1em;
-    /*padding: 1em 0;*/
 
 
 }.alert-info a{
@@ -70,12 +69,13 @@ a{
     display: flex;
     justify-content: center;
 }
+.main{
+    margin-bottom: 2em;
+}
 h2 {
     margin-bottom: .5em;
 }
-p{
-    margin-bottom: 2em;
-}
+
 .sub-section{
     font-style: italic;
 }
@@ -83,23 +83,25 @@ a:hover{
 
 }
 footer{
-    padding: 0;
+    padding-top:10em;
     margin-bottom: 0;
     margin-top: 3em;
     display: flex;
     flex-direction: column;
 }
-#social-media-links{
-    display: flex;
-    justify-content: center;
-}}
+    #social-media-links{
+        flex-direction: column;
+        /*justify-content: flex-end;*/
+        padding-bottom: 15em;
+    }}
 
 
 
 
-@media all and (min-width: 890px) {
+@media all and (min-width: 890px){
     *{
         box-sizing: border-box;
+        font-family: sans-serif;
     }
     body {
         display: grid;
@@ -117,19 +119,19 @@ h1{
     display: flex;
     padding: 0;
     margin: 0;
-    /*justify-content:flex-start;*/
-    /*align-items: center;*/
+    justify-content:flex-start;
+    align-items: center;
 }
 
 .nav-links{
     display: flex;
     list-style: none;
-    /*font-size: 1.1em;*/
+    font-size: 1.1em;
     padding: 0;
     margin: 0;
-    /*height: inherit;*/
+    height: inherit;
     align-items: center;
-    /*flex-direction: row;*/
+    flex-direction: row;
     justify-content: flex-end;
 }
 a{
@@ -154,18 +156,17 @@ img{
 footer{
     grid-area: footer;
     display: flex;
+    font-size: 1em;
     margin-top: 10em;
     flex-direction: column;
     justify-content:space-between;
 }
     #social-media-links {
         display: flex;
-
+        align-content: flex-end;
     }
-
-/*footer{*/
-/*   grid-area: footer;*/
-/*}*/
 }
+
+
 
 
