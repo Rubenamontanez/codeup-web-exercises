@@ -98,7 +98,7 @@ footer{
 
 
 
-@media all and (min-width: 890px){
+@media all and (min-width: 525px){
     *{
         box-sizing: border-box;
         font-family: sans-serif;
