@@ -14,7 +14,4 @@ h1 {
     color: #848487;
     background: white;
     opacity: .6;
-    position: relative;
-    width: calc(100% + 64px);
-    left: -32px;
 }
