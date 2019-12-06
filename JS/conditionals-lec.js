@@ -222,43 +222,44 @@ console.log("hello from conditionals lec.js!");
 //TODO: Write a function that accepts a string that is a traffic light color as an input.
 // When this function is called, it should return a message informing the user what to do
 // when approaching that color light at an intersection.
-function trafficLightColor (color){
-    if (color === "green"){
-        return "go";
-    } else if (color === "red"){
-        return "stop!";
-    } else {
-        return "Do what you want!";
-    }
-}
-console.log(trafficLightColor("yellow"));
-console.log(trafficLightColor("green"));
-console.log(trafficLightColor("red"));
-
-
+//
+// function trafficLightColor (color){
+//     if (color === "green"){
+//         return "go";
+//     } else if (color === "red"){
+//         return "stop!";
+//     } else {
+//         return "Do what you want!";
+//     }
+// }
+// console.log(trafficLightColor("yellow"));
+// console.log(trafficLightColor("green"));
+// console.log(trafficLightColor("red"));
+//
+//
 
 
 // ================ NESTED STATEMENTS ===============
 //TODO Together: If user is under 15, they are not eligible for a learners permit, else they are. If they are eligible,
 // check age. If they are 15 they are eligible for a learners permit, if they are 16 or older and have a permit,
 // they are eligible for license, if they are 16 or older and do not have a permit, they are not eligble for a license.
-
-    var userAge = 17;
-    var hasPermit = false;
-
-    if (userAge < 15){
-        alert("sorry you're not old enough");
-    } else {
-        if (userAge === 15){
-            alert("you can have a permit")
-        } else if (userAge > 16 && hasPermit){
-            alert("you can have a license")
-        } else if (userAge > 16 && !hasPermit){
-            alert("you need a permit first")
-        } else {
-            alert("please see front desk")
-        }
-    }
+//
+//     var userAge = 17;
+//     var hasPermit = false;
+//
+//     if (userAge < 15){
+//         alert("sorry you're not old enough");
+//     } else {
+//         if (userAge === 15){
+//             alert("you can have a permit")
+//         } else if (userAge > 16 && hasPermit){
+//             alert("you can have a license")
+//         } else if (userAge > 16 && !hasPermit){
+//             alert("you need a permit first")
+//         } else {
+//             alert("please see front desk")
+//         }
+//     }
 
 
 
@@ -279,16 +280,22 @@ console.log(trafficLightColor("red"));
 // console.log(message);
 
 
-// var success = true;
+// var success = false;
 // var message = (success) ? "Operation was successful from tern." : "Oops, something went wrong from tern.";
 // console.log(message)
-
+//
+// if(isAdmin){
+//     showAdminNavbar();
+// } else {
+//     showRegularNavbar();
+// }
+// (isAdmin) ? showAdminNavbar : showRegularNavbar;
 
 //TODO: Refactor the following conditional as a ternary
-
+//
 // var weather = "sunny";
 // var weatherMessage;
-
+//
 // if(weather === "rainy"){
 //    weatherMessage = "It's raining!";
 // } else {
@@ -297,7 +304,9 @@ console.log(trafficLightColor("red"));
 
 //WRITE YOUR TERNARY STATEMENT HERE!
 
-
+var weather = "rainy";
+var weatherMessage = (weather) ? "It's raining!" : "Have a nice day!";
+console.log(weatherMessage);
 
 // =============== SWITCH STATEMENT ================
 //TODO Together:
@@ -318,9 +327,62 @@ console.log(trafficLightColor("red"));
 
 
 //TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
+//     var weatherConditions = "windy"
+//
+//         switch(weatherConditions) {
+//            case "rainy":
+//               alert("It's raining");
+//               break;
+//             case "sunny":
+//                 alert("The sun is out ");
+//               break;
+//            case "snow":
+//               alert("Get your jackets its snowing");
+//               break;
+//            default:
+//               alert(weatherConditions + " makes for a great day");
+//               break;
+//         }
 
-
+        // function checkWeather (weather){
+        //     var weatherMessage;
+        //     switch (weather) {
+        //         case "rainy":
+        //             weatherMessage = "Its raining";
+        //         case "sunny":
+        //             weatherMessage = "The sun is out ";
+        //             break;
+        //         case "snow":
+        //             weatherMessage = "Get your jackets its snowing";
+        //             break;
+        //         default:
+        //          weatherMessage = "have a great day";
+        //             break;
+        //     }
+        //     return weatherMessage;
+        // }
+        // console.log(checkWeather("sunny"));
 //TODO: Rewrite the intersection function from earlier as a switch statement.
+
+        function trafficLightColor (traffic){
+            var trafficMessage;
+            switch (traffic) {
+                case "green":
+                    trafficMessage = "go";
+                    break;
+                case "red":
+                    trafficMessage = "stop!";
+                    break;
+                default:
+                    return "Do what you want!";
+                    break;
+            }
+            return trafficMessage;
+        }
+console.log(trafficLightColor("green"));
+
+
+
 
 
 
@@ -329,7 +391,8 @@ console.log(trafficLightColor("red"));
 
 
 // 1) https://mdn.github.io/learning-area/javascript/building-blocks/allowance-updater.html
-
+// if does chores gets 10$
+// else doesnt get 10 dollars
 
 // 2) https://mdn.github.io/learning-area/javascript/building-blocks/simple-else-if.html
 
