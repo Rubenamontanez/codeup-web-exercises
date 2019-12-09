@@ -189,24 +189,24 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
-// var totalBill = Number(prompt("What was your bill total?"));
-//
-// function calculateTotal() {
-//    alert("your lucky number was " + luckyNumber);
-//    alert("Your price before discount was " + totalBill);
-//    if (luckyNumber === 0) {
-//       alert("you dont get a discount");
-//    } else if (luckyNumber === 1) {
-//       alert("your price after discount is $" + totalBill / .25);
-//    } else if (luckyNumber === 2) {
-//       alert("your price after discount is $" + totalBill / .35);
-//    } else if (luckyNumber === 3) {
-//       alert("your price after discount is $" + totalBill / .50);
-//    } else if (luckyNumber === 4) {
-//       alert("your price after discount is $" + totalBill / .50);
-//    } else {
-//       alert("your price after discount is $" + 0);
-//    }
-// }
-// console.log(calculateTotal());
+var luckyNumber = Math.floor(Math.random() * 6);
+var totalBill = Number(prompt("What was your bill total?"));
+
+function calculateTotal() {
+   alert("your lucky number was " + luckyNumber);
+   alert("Your price before discount was " + totalBill);
+   if (luckyNumber === 0) {
+      alert("you dont get a discount");
+   } else if (luckyNumber === 1) {
+      alert("your price after discount is $" + (totalBill - totalBill * .10));
+   } else if (luckyNumber === 2) {
+      alert("your price after discount is $" + (totalBill - totalBill * .25));
+   } else if (luckyNumber === 3) {
+      alert("your price after discount is $" + (totalBill- totalBill * .35));
+   } else if (luckyNumber === 4) {
+      alert("your price after discount is $" + (totalBill - totalBill* .50));
+   } else {
+      alert("your price after discount is $" + 0);
+   }
+}
+console.log(calculateTotal());
