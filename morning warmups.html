@@ -111,8 +111,21 @@
             }
             return false;
         }
+
         console.log(contains([1,2,3], 3));
         console.log(contains(["cat", "hat", "bat"], "4"));
+
+        console.log(seeYouLater("alligator"));
+        //write a js function that receives another function as a paramater and executes it
+        // then call the function, and pass in an anonymous function as an argument
+        function functioA(callBackFunction){
+            callBackFunction();
+        }
+        functioA(function() {
+            alert("it works");
+        });
+
+
 
     </script>
     </body>

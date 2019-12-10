@@ -8,11 +8,10 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
-
-function sayHello(name){
+function sayHello(name) {
     return "Hello, " + name + "!";
 }
-console.log(sayHello("Ruben"));
+// console.log(sayHello("codeup")); // returns "Hello, codeup!"
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -20,16 +19,16 @@ console.log(sayHello("Ruben"));
  *
  * console.log 'helloMessage' to check your work
  */
-var hellomessage = sayHello ("Ruben");
-console.log(hellomessage);
+var helloMessage = sayHello("Daniel");
+// console.log(helloMessage);
 /**
  * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-var myName = "Ruben";
-console.log(sayHello(myName));
+var myName = "Daniel";
+// console.log(sayHello(myName));
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -52,18 +51,13 @@ var random = Math.floor((Math.random() * 3) + 1);
  * different result everytime you refresh the page if you are using the random
  * number)
  */
-
-// in class solution
 var isTwo = function(num) {
-    return num ===2;
-}
-console.log(isTwo(1)); // returns false
-// my solution
-function isTwo(num){
     return num === 2;
 }
-console.log(isTwo(1));
-
+// console.log(isTwo(1)); // returns false
+// console.log(isTwo(2)); // returns true
+// console.log(isTwo(3)); // returns false
+// console.log(isTwo(random));
 /**
  * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
@@ -75,22 +69,31 @@ console.log(isTwo(1));
  * > calculateTip(0.25, 25.50) // returns 6.37
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
-function calculateTip(tip, bill){
-    return tip * bill;
+var calculateTip = function (tipPercent, billTotal) {
+    // console.log("We are in the function scope and tipPercentage is " + tipPercentage)
+    // console.log("We are in the function scope and billTotal is " + billTotal)
+    return tipPercent * billTotal
 }
-console.log(calculateTip(.20 ,20));
-console.log(calculateTip(0.25, 25.50));
+// console.log(calculateTip(0.20, 20)) // returns 4
+// console.log(calculateTip(0.25, 25.50)) // returns 6.375
+// console.log(calculateTip(0.15, 33.42)) // returns 5.013
 
+var totalBillPlusTip = function (tipPercent, billTotal) {
+    var tip = calculateTip(tipPercent, billTotal);
+    return tip + billTotal;
+}
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
-var billAmount = Number(prompt("what is your bill total"));
-var tipPrompt = Number(prompt("what tip percentage do you want to leave"));
-var tipAmount = (tipPrompt/100);
-var total = alert("your tip amount is $" + billAmount * tipAmount);
+var tipPercentage = parseFloat(prompt("What percentage would you like to tip? (0.00 to 1.00)"))
+var billTotal = parseFloat(prompt("What was the total for your bill?"))
+var amountToTip = calculateTip(tipPercentage, billTotal);
+var total = totalBillPlusTip(tipPercentage, billTotal);
+alert("Leave $" + amountToTip + " as a tip. Altogether that is $" + total);
+
 
 /**
  * TODO:
@@ -101,17 +104,17 @@ var total = alert("your tip amount is $" + billAmount * tipAmount);
  *
  * Example:
  * > var originalPrice = 100;
- * > var discountPercent = .2; // 20%
+ * > var dicountPercent = .2; // 20%
  * > applyDiscount(originalPrice, dicountPercent) // 80
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
-//classroom review
-// var applyDiscount = function (price, discount)
-
-
-function applyDiscount(price, discount) {
-    return Number(price) - (price * (discount/100));
+var applyDiscount = function (price, discountPercentage) {
+    var discountAmount = price * discountPercentage;
+    return price - discountAmount;
 }
-
-console.log(applyDiscount(45.99,12));
+var originalPrice = 100;
+var dicountPercent = .2; // 20%
+// console.log(applyDiscount(originalPrice, dicountPercent)) // 80
+// console.log(applyDiscount(45.99, 0.12)) // 40.4712
+// console.log(applyDiscount(100, 32))
