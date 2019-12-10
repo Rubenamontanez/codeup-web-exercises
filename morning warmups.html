@@ -7,100 +7,112 @@
     <body>
 
     <script>
-//       Nov.6 javascript pushups//
-        function hello(){
-        return "Hello, World!";
-    }
-         console.log(hello());
+// //       Nov.6 javascript pushups//
+//         function hello(){
+//         return "Hello, World!";
+//     }
+//          console.log(hello());
+//
+//     //     Nov.7 javascript pushups //
+//         function helloName (name){
+//             return "Hello" + name + "!"
+//         }
+//         console.log(helloName("Ruben"));
+//     //          Nov.8 javascript pushups //
+//         function add(x,y){
+//             return x+y;
+//         }
+//         console.log(add(1,2));
+//     //    Nov. 12 exercise //
+//         function addFour(x,y,z,w) {
+//             return (x+y+z+w);
+//         }
+//         console.log(addFour(1,2,3,4));
+//         // string will cause other issues especially at the beginning. caused var to conc. //
+//         console.log(addFour("17",100,2,23));
+//         console.log(addFour(17,100,2,23));
+//     //    Nov. 13 exercise
+//         function calculateRectangleArea(width,length){
+//             return (width * length)
+//         }
+//         console.log(calculateRectangleArea(5,5));
+//        // Nov. 14 exercise //
+//         var animals= ["dog", "cat", "bird", "fish"];
+//
+//         function firstItem(inputArray){
+//             return inputArray[0]
+//         }
+//         console.log(firstItem(["dog", "cat", "bird", "fish"]));
+//     //    Nov. 15 exercises
+//         var arrayLength = function (inputArray){
+//             return  (inputArray.length)
+//         }
+//         console.log(arrayLength(["dog", "cat", "bird", "fish"]));
+//     //  Nov. 18 exercises
+//         function lastItem(inputArray) {
+//             return inputArray[inputArray.length-1];
+//         }
+//         console.log(lastItem(["dog", "cat", "bird", "fish"]));
+//     //    Nov. 19 exercise
+//         function nthItem(inputArray, n){
+//            return (inputArray[n-1]); /*(inputArray[1] + (n)) */
+//         }
+//         console.log(nthItem(["Vivian", "Daniel", "Justin", "Sophie"], 2))
+//     //    Nov.20 exercise
+//     //     function getType(operand){
+//     //         return typeof(operand)
+//     //                      }
+//         console.log(typeof (2))
+//     //    Nov.22 exercise
+//         function put2(inputArray){
+//             return (inputArray + " 2")
+//         }
+//         console.log(put2(["Vivian", "Daniel", "Justin", "Sophie"] ))
+//     //    Nov. 25 exercises
+//         function greaterThan(numInput){
+//             if (numInput >10){
+//                 return true;
+//             } else {
+//                 return false;
+//             }
+//         }
+//         console.log(greaterThan(10))
+//         // Nov. 26 exercise
+//         function youMayEnter(age){
+//             console.log(age);
+//             if (age >=13){
+//                 return "you may enter";
+//             } else {
+//                 return "sorry, you need a parent or guardian";
+//             }
+//         }
+//         console.log(youMayEnter(5));
+//
+//         function seeYouLater(x){
+//             if (x = "alligator"){
+//                 return "see you later alligator"
+//             } else if (x = "crocidile"){
+//                 return "after a while ,crocidile"
+//             } else {
+//                 return "so long"
+//             }
+//             // const alligator = "See you later alligator";
+//             // const crocidile = "After  a while crocidile";
+//             // return
+//         }
+//         console.log(seeYouLater("alligator"));
 
-    //     Nov.7 javascript pushups //
-        function helloName (name){
-            return "Hello" + name + "!"
-        }
-        console.log(helloName("Ruben"));
-    //          Nov.8 javascript pushups //
-        function add(x,y){
-            return x+y;
-        }
-        console.log(add(1,2));
-    //    Nov. 12 exercise //
-        function addFour(x,y,z,w) {
-            return (x+y+z+w);
-        }
-        console.log(addFour(1,2,3,4));
-        // string will cause other issues especially at the beginning. caused var to conc. //
-        console.log(addFour("17",100,2,23));
-        console.log(addFour(17,100,2,23));
-    //    Nov. 13 exercise
-        function calculateRectangleArea(width,length){
-            return (width * length)
-        }
-        console.log(calculateRectangleArea(5,5));
-       // Nov. 14 exercise //
-        var animals= ["dog", "cat", "bird", "fish"];
-
-        function firstItem(inputArray){
-            return inputArray[0]
-        }
-        console.log(firstItem(["dog", "cat", "bird", "fish"]));
-    //    Nov. 15 exercises
-        var arrayLength = function (inputArray){
-            return  (inputArray.length)
-        }
-        console.log(arrayLength(["dog", "cat", "bird", "fish"]));
-    //  Nov. 18 exercises
-        function lastItem(inputArray) {
-            return inputArray[inputArray.length-1];
-        }
-        console.log(lastItem(["dog", "cat", "bird", "fish"]));
-    //    Nov. 19 exercise
-        function nthItem(inputArray, n){
-           return (inputArray[n-1]); /*(inputArray[1] + (n)) */
-        }
-        console.log(nthItem(["Vivian", "Daniel", "Justin", "Sophie"], 2))
-    //    Nov.20 exercise
-    //     function getType(operand){
-    //         return typeof(operand)
-    //                      }
-        console.log(typeof (2))
-    //    Nov.22 exercise
-        function put2(inputArray){
-            return (inputArray + " 2")
-        }
-        console.log(put2(["Vivian", "Daniel", "Justin", "Sophie"] ))
-    //    Nov. 25 exercises
-        function greaterThan(numInput){
-            if (numInput >10){
-                return true;
-            } else {
-                return false;
+        function contains(arr, param){
+            // return arr.includes(param);
+            for (var i = 0; i<arr.length; i++){
+                if(arr[i] === param){
+                    return true;
+                }
             }
+            return false;
         }
-        console.log(greaterThan(10))
-        // Nov. 26 exercise
-        function youMayEnter(age){
-            console.log(age);
-            if (age >=13){
-                return "you may enter";
-            } else {
-                return "sorry, you need a parent or guardian";
-            }
-        }
-        console.log(youMayEnter(5));
-
-        function seeYouLater(x){
-            if (x = "alligator"){
-                return "see you later alligator"
-            } else if (x = "crocidile"){
-                return "after a while ,crocidile"
-            } else {
-                return "so long"
-            }
-            // const alligator = "See you later alligator";
-            // const crocidile = "After  a while crocidile";
-            // return
-        }
-        console.log(seeYouLater("alligator"));
+        console.log(contains([1,2,3], 3));
+        console.log(contains(["cat", "hat", "bat"], "4"));
 
     </script>
     </body>
