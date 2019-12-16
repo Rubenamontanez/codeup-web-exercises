@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+<h1 id="header">Happy Holidays</h1>
+<h3>wish list</h3>
+<ul>
+    <li>Great career</li>
+    <li class="even">2 Front teeth</li>
+    <li>Oculus quest</li>
+    <li class="even"> Nintendo switch</li>
+    <li> Valve index</li>
+    <li class="even">macbook</li>
+</ul>
+<a href="http://codeup.com"></a>
+
+<script>
+    console.log(document)
+    var header = document.getElementById("header");
+    console.log(header)
+
+    var evens = document.getElementsByClassName("even");
+    console.log(evens)
+    for (var i = 0;i<evens.length; i++){
+        evens[i].innerHTML = "<em>Money</em>";
+        console.log(evens[i].innerHTML);
+    }
+
+    // var lis = document.getElementsByTagName("li");
+    // console.log(lis);
+    // for(var i = 0;i<lis.length; i++){
+    //     console.log(lis[i]);
+    // }
+   var codeuplink= document.getElementById("codeup").getAttribute("href");
+    console.log(codeuplink);
+
+</script>
+
+</body>
+</html>
