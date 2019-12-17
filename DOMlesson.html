@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>DOM</title>
+    .purple{
+    color:
+
 </head>
 <body>
 <h1 id="header">Happy Holidays</h1>
 <h3>wish list</h3>
+
 <ul>
+
     <li>Great career</li>
     <li class="even">2 Front teeth</li>
     <li>Oculus quest</li>
@@ -15,7 +20,9 @@
     <li> Valve index</li>
     <li class="even">macbook</li>
 </ul>
-<a href="http://codeup.com"></a>
+
+
+<button id="button">Click Me!</button>
 
 <script>
     console.log(document)
@@ -34,9 +41,25 @@
     // for(var i = 0;i<lis.length; i++){
     //     console.log(lis[i]);
     // }
-   var codeuplink= document.getElementById("codeup").getAttribute("href");
-    console.log(codeuplink);
+   // var codeuplink = document.getElementById("codeup").getAttribute("href");
+   //  console.log(codeuplink);
 
+
+    var clicks = 0;
+    var button = document.getElementById("button");
+    button.addEventListener("clicks", function(){
+        clicks++;
+        console.log("button was clicked " + clicks + " times");
+    })
+
+    button.addEventListener("mouseover", function () {
+        button.style.color= "purple";
+
+    })
+    button.addEventListener("mouseout", function () {
+        button.style.color= "cyan";
+
+    })
 </script>
 
 </body>
