@@ -102,38 +102,38 @@
 //         }
 //         console.log(seeYouLater("alligator"));
 
-        function contains(arr, param){
-            // return arr.includes(param);
-            for (var i = 0; i<arr.length; i++){
-                if(arr[i] === param){
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        console.log(contains([1,2,3], 3));
-        console.log(contains(["cat", "hat", "bat"], "4"));
-
-        console.log(seeYouLater("alligator"));
+        // function contains(arr, param){
+        //     // return arr.includes(param);
+        //     for (var i = 0; i<arr.length; i++){
+        //         if(arr[i] === param){
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        // }
+        //
+        // console.log(contains([1,2,3], 3));
+        // console.log(contains(["cat", "hat", "bat"], "4"));
+        //
+        // console.log(seeYouLater("alligator"));
         //write a js function that receives another function as a paramater and executes it
         // then call the function, and pass in an anonymous function as an argument
-        function functioA(callBackFunction){
-            callBackFunction();
-        }
-        functioA(function() {
-            alert("it works");
-        });
+        // function functioA(callBackFunction){
+        //     callBackFunction();
+        // }
+        // functioA(function() {
+        //     alert("it works");
+        // });
 
     //    santa object
 // Let's make Santa!
-    var santa = {
-        name:"Santa Claus",
-        niceList:["Fer", "Vivian", "David"],
-        sayHello: function() {
-            return "Merry Christmas! Ho Ho Ho!!!";
-        }
-    };
+//     var santa = {
+//         name:"Santa Claus",
+//         niceList:["Fer", "Vivian", "David"],
+//         sayHello: function() {
+//             return "Merry Christmas! Ho Ho Ho!!!";
+//         }
+//     };
 // Loop through the following  array of Reindeer objects and return an array of Reindeer objects that are "gold" reindeer
 
     var reindeerList = [
@@ -209,17 +209,16 @@
         }
     ];
 
-
-function getGoldReindeer(reindeerArray){
-        var bucket = [];
-        reindeerArray.forEach(function (reindeer) {
-        // console.log()
-            if (reindeer.isGold ===true){
-                bucket.push(reindeer);
-            }
-        })
-        return bucket;
-    }
+var goldenReindeer = function(reindeerArray){
+    var bucket = [];
+    reindeerArray.forEach(function(reindeer){
+        if(reindeer.isGold === true){
+            bucket.push(reindeer);
+        }
+    })
+    return bucket;
+}
+console.log(goldenReindeer(reindeerList));
 
 
 
