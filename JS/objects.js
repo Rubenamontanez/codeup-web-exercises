@@ -1,4 +1,4 @@
-(function() {
+// (function() {
     "use strict";
 
     /**
@@ -97,46 +97,51 @@
      */
     var books = [
         {
-            title: "the book",
+            title: "The Power of Habit",
             author: {
-            firstName: "ruben",
-            lastName: "montanez"
-                    }
-        },
-        {
-             title: "the 2 book",
-            author: {
-            firstName: "jon",
-            lastName: "doe"
-                    }
-        },
-        {
-            title: "the 3rd book",
-            author:{
-            firstName: "jane",
-            lastName: "doe"
+                firstName: "Charles",
+                lastName: "Duhigg"
             }
         },
         {
-            title: "the 4th book",
-            author:{
-            firstName: "bob",
-            lastName: "foe"
+            title: "UnF*ck Yourself",
+            author: {
+                firstName: "Gary",
+                lastName: "Bishop"
             }
         },
         {
-            title: "the 5th book",
+            title: "The subtle art of not giving a f*uck",
             author:{
-            firstName: "low",
-            lastName: "show"
+                firstName: "Mark",
+                lastName: "Manson"
+            }
+        },
+        {
+            title: "The Alchemist",
+            author:{
+                firstName: "Paulo",
+                lastName: "Coelho"
+            }
+        },
+        {
+            title: "The Four Agreements",
+            author:{
+                firstName: "Don Miguel",
+                lastName: "Ruiz"
             }
         }
     ];
 
     // books.forEach(name);
-    console.log(books[0].title) // "The Salmon of Doubt"
-    console.log(books[0].author.firstName) // "Douglas"
-    console.log(books[0].author.lastName) // "Adams"
+    // console.log(books[0].title) // "The Salmon of Doubt"
+    // console.log(books[0].author.firstName) // "Douglas"
+    // console.log(books[0].author.lastName) // "Adams"
+
+    console.log(books.length);
+    for (var i = 0; i<books.length; i++){
+
+    }
 
     /**
      * TODO:
@@ -164,11 +169,13 @@
      */
 
     books.forEach(function (book) {
-        console.log('-----');
         console.log('Book #' + (books.indexOf(book) + 1));
         console.log('Tile: ' + book.title);
         console.log('Author: ' + book.author.firstName + " " + book.author.lastName);
-    })
+        console.log('---');
+    });
+
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -179,5 +186,16 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+    var createBook = function(title, authorFirstName, authorLastName) {
+        var book = {};
+        book.title = title;
+        book.author = {
+            firstName: authorFirstName,
+            lastName: authorLastName
+        };
+        return book;
+    }
 
-})();
+    books.push(createBook(title, authorFirstName, authorlastName ));
+
+// };
