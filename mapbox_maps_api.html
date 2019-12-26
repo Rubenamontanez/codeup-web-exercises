@@ -2,13 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
+    <title>Map Marker Example</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+    <script src="JS/keys.js"></script>
 
 </head>
 <body>
-pk.eyJ1IjoicnViZW5tb250YW5leiIsImEiOiJjazQ5dnlqcmYwODd3M2RuMnBwMDk4NXFnIn0.jKXSAK-FhOPH6KecDFyGNg
+
+
+<div id='map'></div>
+
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="JS/mapbox-geocoder-utils.js"></script>
+
+<!-- Custom JS -->
+<script>
+    var accessToken = mapboxtoken;
+    mapboxgl.accessToken = accessToken;
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 13,
+        center: [-90.097913, 29.972364],
+
+    });
+
+
+    // var mandinaPopup = new mapboxgl.Popup()
+    //     .setHTML("<p>Mandina's Restaurant</p>")
+    //     .addTo(map);
+    //
+    // var mandinaMarker = new mapboxgl.Marker()
+    //     .setLngLat([-90.097913, 29.972364])
+    //     .setPopup(mandinaPopup)
+    //     .addTo(map);
+    //
+    // var parkwayPopup = new mapboxgl.Popup()
+    //     .setHTML("<p>Parkway Bakery & Tavern</p>")
+    //     .addTo(map);
+    //
+    // var parkwayMarker = new mapboxgl.Marker()
+    //     .setLngLat([-90.090372, 29.973269])
+    //     .setPopup(parkwayPopup)
+    //     .addTo(map);
+    //
+    // var cajunPopup = new mapboxgl.Popup()
+    //     .setHTML("<p>Cajun Mikes Pub & Grub</p>")
+    //     .addTo(map);
+    //
+    // var cajunMarker = new mapboxgl.Marker()
+    //     .setLngLat([-90.071217, 29.95397])
+    //     .setPopup(cajunPopup)
+    //     .addTo(map);
+
+favRestList = [
+    {
+        name: "Mandina's Restaurant",
+        info: "great place",
+        location:[-90.097913, 29.972364]
+
+    },
+    {
+        name: "Parkway Bakery & Tavern",
+        info: "excellent choice",
+        location:[-90.090372, 29.973269]
+
+    },
+    {
+        name: "Cajun Mikes Pub & Grub",
+        info: "nice place",
+        location:[-90.071217, 29.95397]
+
+    }
+];
+    favRestList.forEach(function (restaurant) {
+
+        var restaurantPopup = new mapboxgl.Popup()
+            .setHTML(restaurant.name)
+
+        var restaurantMarker =new mapboxgl.Marker()
+            .setLngLat(restaurant.location)
+            .setPopup(restaurantPopup)
+            .addTo(map);
+    })
+
+
+</script>
 </body>
 </html>
