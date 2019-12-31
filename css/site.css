@@ -5,7 +5,7 @@
 
 }
 h2, h3, h4, h5, h6 {
-    color:sienna;
+    color:darkblue;
     text-decoration: underline;
 }
 #body {
@@ -25,7 +25,7 @@ table tr td {
     margin: 40px;
     padding: 40px;
     font-style: normal;
-    border-bottom: 1px solid #000;
+    border-bottom: 5px solid #000;
 }
 th {
     color:white;
