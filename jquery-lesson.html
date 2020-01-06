@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery lesson</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+
+
+<h1>jQuery</h1>
+<h3 id="new">New Year List</h3>
+<ul>
+    <li class="odd blue">Great career</li>
+    <li class="even green">car</li>
+    <li class="odd blue">hat</li>
+    <li class="even green">money</li>
+    <li class="odd blue">fun</li>
+    <li class="even green">TV</li>
+</ul>
+
+<button id="button">Click Me!</button>
+
+<script>
+    (function (){
+        "use strict";
+        $(document).ready(function () {
+            // alert("Look, we're using jQuery");
+            // document.getElementById("button").addEventListener("click", function () {
+            //     alert("you clicked the button")
+            // });
+            //   $(#button.click(function () {
+            //     alert("you clicked the button")
+            //   });
+            $('#new').css('background-color', 'yellow');
+            $('.even').css('font-size', '2em');
+            $('.odd').css('font-size', '1.5em');
+            $('.green').css('color', 'green');
+            $('.blue').css('color', 'blue');
+        })
+    })();
+</script>
+
+</body>
+</html>
