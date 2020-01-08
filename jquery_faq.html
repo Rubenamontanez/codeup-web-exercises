@@ -40,13 +40,34 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+         .bold{
+             font-weight: bold;
+        }
+        .blue{
+            color: blue;
+        }
+        #national-parks, #state-parks-texas, #city-parks {
+            display: none;
+        }
+        #register{
+            display: none;
+        }
+
     </style>
 </head>
 <body>
     <div class="jumbotron bg">
 <h1 class="text-white" id="first">National Parks</h1>
     </div>
+    <h2 id="register">Register for our website</h2>
+    <div id="cant-see">
+        <h1 >Would you like to sign up for our newsletter?</h1>
+        <span id="press">X</span>
+    </div>
+
 <a href="#" id="important">Click to view facts.</a>
+
+
 
 <dl class="row">
     <dt class="col-sm-3 text-truncate highlight">National Parks fact#1</dt>
@@ -71,11 +92,30 @@
     <dd class="col-sm-9 invisible">10.The largest living things in the world are in National Parks: Sequoia trees and Alaskan brown bears (the world’s largest living carnivores).</dd>
 </dl>
 
-    <ul>
 
 
+    <h3 id="national-parks-toggle">National Parks</h3>
+    <ul id="national-parks">
+        <li>Arches</li>
+        <li>Badlands</li>
+        <li>Carlsbad Caverns</li>
+        <li>Denali</li>
     </ul>
-
+    <h3 id="state-parks-texas-toggle" >State Parks of Texas</h3>
+    <ul id="state-parks-texas">
+        <li>Abilene</li>
+        <li>Big Bend</li>
+        <li>Choke Canyon</li>
+        <li>Davis Mountains</li>
+    </ul>
+    <h3 id="city-parks-toggle" >City Parks</h3>
+    <ul id="city-parks">
+        <li>Friedrich</li>
+        <li>Brackenridge</li>
+        <li>Hemisfair</li>
+        <li>Travis</li>
+    </ul>
+    <button id="different">Click to highlight some things!</button>
 <script>
 
     // $(document).ready(function() {
@@ -87,9 +127,45 @@
             // event.preventDefault();
             $('dd').toggleClass("invisible");
         });
-    });
-    $("dt").click(function() {
-        $(this).toggleClass("highlighted");
+
+        $("dt").click(function() {
+            $(this).toggleClass("highlighted");
+        //    or .css('background-color','yellow');
+        });
+
+        $("h3").click(function() {
+            $(this).next().children().toggleClass("bold")
+        //    or
+        });
+
+        $('#different').click(function() {
+            $('ul').each(function () {
+             $(this).children().last().toggleClass("highlighted")
+            });
+        });
+
+        $('li').click(function() {
+                $(this).parent().children().first().toggleClass("blue")
+        });
+
+        $('#press').click(function() {
+            $('#cant-see').hide();
+        });
+
+        $('#national-parks-toggle').click(function() {
+            $('#national-parks').toggle();
+        });
+        $('#state-parks-texas-toggle').click(function() {
+            $('#state-parks-texas').toggle();
+        });
+        $('#city-parks-toggle').click(function() {
+            $('#city-parks').toggle();
+        });
+
+        $( "h2" ).fadeIn( 8000, function() {
+            // Animation complete
+        });
+
     });
 
 
