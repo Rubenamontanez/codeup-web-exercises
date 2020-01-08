@@ -8,41 +8,55 @@
                 font-family:"Savoye LET";
                 color: #1969B2;
                 font-size: 5em;
+                text-align: center;
             }
             span{
-                font-size: 2em;
+                font-size: 5em;
+            }
+            .code{
+                text-align: center;
+            }
+            span{
+                background: #def3ca;
+                margin: 3px;
+                width: 80px;
+                /*display: none;*/
+                text-align: center;
+            }
+            #showr{
+                text-align: center;
             }
         </style>
 </head>
 <body>
     <h1>Konami Code</h1>
     <p class="code">
-        <span>&uarr;</span>
-        <span>&uarr;</span>
-        <span>&darr;</span>
-        <span>&darr;</span>
-        <span>&larr;</span>
-        <span>&rarr;</span>
-        <span>&larr;</span>
-        <span>&rarr;</span>
-        <span>B</span>
-        <span>A</span>
+        <span id="first">&uarr;</span>
+        <span id="second">&uarr;</span>
+        <span id="third">&darr;</span>
+        <span id="fourth">&darr;</span>
+        <span id="fifth">&larr;</span>
+        <span id="sixth">&rarr;</span>
+        <span id="seventh">&larr;</span>
+        <span id="eigth">&rarr;</span>
+        <span id="ninth">B</span>
+        <span id="tenth">A</span>
     </p>
+
 
     <script>
         "use strict";
         $(document).keyup(function(event){
             console.log(event.keyCode);
         });
-        // a key map of allowed keys
-        var allowedKeys = {
-            37: 'left',
-            38: 'up',
-            39: 'right',
-            40: 'down',
-            65: 'a',
-            66: 'b'
-        };
+
+        // $( "#showr" ).click(function() {
+        //     $( "span" ).first().show( "fast", function showNext() {
+        //         $( this ).next( "span" ).show( "fast", showNext );
+        //     });
+        // });
+
+        var allowedKeys = {37: 'left', 38: 'up', 39: 'right', 40: 'down', 65: 'a', 66: 'b'};
 
         // the 'official' Konami Code sequence
         var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
@@ -50,38 +64,22 @@
         // a variable to remember the 'position' the user has reached so far.
         var konamiCodePosition = 0;
 
-        // add keydown event listener
-        document.addEventListener('keydown', function(e) {
-            // get the value of the key code from the key map
+        $(document).keydown(function (e) {
             var key = allowedKeys[e.keyCode];
-            // get the value of the required key from the konami code
             var requiredKey = konamiCode[konamiCodePosition];
-
-            // compare the key with the required key
             if (key == requiredKey) {
-
-                // move to the next key in the konami code sequence
                 konamiCodePosition++;
-
-                // if the last key is reached, activate cheats
                 if (konamiCodePosition == konamiCode.length) {
-                    activateCheats();
+                        $("body").css("background-image", "url(img/Konami.png)");
                     konamiCodePosition = 0;
                 }
             } else {
                 konamiCodePosition = 0;
+                $("body").css("background-image", "url(img/wrong-stamp.png)");
+                $("body").css("background-size", "85%")
             }
         });
 
-        function activateCheats() {
-            document.body.style.backgroundImage = "url('img/Konami.png')";
-
-            var audio = new Audio('audio/pling.mp3');
-            audio.play();
-
-            alert("cheats activated");
-        }
-
-        </script>
+       </script>
 </body>
 </html>
