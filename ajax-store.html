@@ -31,7 +31,7 @@
             $.get("data/inventory.json", {
             }).done(function (data) {
                 data.forEach(function (item) {
-                    $('#insertProducts').append('<tr></tr>');
+                    $('#products').append('<tr></tr>');
                     $('tr').last().append('<td>' + item.title + '</td>');
                     $('tr').last().append('<td>' + item.quantity + '</td>');
                     $('tr').last().append('<td>' + item.price + '</td>');
@@ -42,7 +42,7 @@
 
         refresh();
         $('#refresh').click(function(){
-            $('#insertProducts').html ("");
+            $('#products').html ("");
             refresh()
         })
 
