@@ -28,7 +28,8 @@
         "use strict";
 
         function refresh() {
-            $.get("data/inventory.json", {}).done(function (data) {
+            $.get("data/inventory.json", {
+            }).done(function (data) {
                 data.forEach(function (item) {
                     $('#insertProducts').append('<tr></tr>');
                     $('tr').last().append('<td>' + item.title + '</td>');
