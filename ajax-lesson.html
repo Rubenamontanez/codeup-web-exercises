@@ -6,21 +6,26 @@
 </head>
 <body>
 
+<div id= "makeup"></div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 <script>
 "use strict";
 
-$.ajax("https://swapi.co/api/people/1/")
+$.ajax("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
     .done(function (obj) {
-        console.log(obj.name);
-    });
+        console.log(obj);
+        $("#makeup").append(
+            "<p>"+ obj.brand + "</p>"
+    );
+
+});
 $.ajax("https://pokeapi.co/api/v2/pokemon/pikachu")
     .done(function (resp) {
         console.log(resp.name);
     });
-$.ajax("https://pokeapi.co/api/v2/pokemon/800")
+$.ajax("https://pokeapi.co/api/v2/pokemon/36")
     .done(function (data, status, jqXhr) {
         console.log(data.name);
         console.log(status);
