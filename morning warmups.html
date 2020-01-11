@@ -3,8 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>Morning Warmups</title>
+        <style>
+            .highlight{
+                background-color: #0fb784;
+            }
+
+        </style>
+
     </head>
     <body>
+    <div  id="box">Click Me!</div>
 
     <script>
         "use strict";
@@ -229,6 +237,61 @@ console.log("hello");
 //      else console.log(i);
 //     }
 // }
+jQuery-events
+
+        // Create a page with a clickable element that, when clicked, changes the background color to a randomly selected color. You can use jquery but you don’t have to
+
+        var hamsters = [
+            {
+                name: "Hamtaro",
+                heightInMM: 86,
+                fur: ['orange', 'white'],
+                gender: "male",
+                dateOfBirth: "August 6"
+            } , {
+                name: "Bijou",
+                heightInMM: 75,
+                fur: ['white'],
+                gender: "female",
+                dateOfBirth: "July 10"
+            } , {
+                name: "Oxnard",
+                heightInMM: 100,
+                fur: ['grey', 'white'],
+                gender: "male",
+                dateOfBirth: "May 3"
+            } , {
+                name: "Boss",
+                heightInMM: 120,
+                fur: ['brown', 'white'],
+                gender: "male",
+                dateOfBirth: "Spetember 21"
+            } , {
+                name: "Snoozer",
+                heightInMM: 85,
+                fur: ['brown', 'white', "pink"],
+                gender: "male",
+                dateOfBirth: "January 14"
+            }
+        ];
+
+        function getAverageheight() {
+            var totalheight = 0;
+            for(var i=0;i<hamsters.length;i++) {
+                totalheight += hamsters[i].heightInMM;
+            }
+            return totalheight /hamsters.heightInMM;
+
+
+        function getAverageheight() {
+        var total = 0;
+        arr.forEach(function(ham) {
+            total += ham.heightInMM;
+
+            return total.arr.length;
+
+        });
+ master
 
     </script>
     </body>
