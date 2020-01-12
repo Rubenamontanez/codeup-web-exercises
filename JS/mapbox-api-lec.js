@@ -38,8 +38,8 @@
 //
 // }
 // var marker = new mapboxgl.Marker(markerOptions)
-// //     .setLngLat([-98.4861, 29.4260])
-// //     .addTo(map);
+// // //     .setLngLat([-98.4861, 29.4260])
+// // //     .addTo(map);
 
 // TODO: Experiment with the color, and setting the LngLat
 // TODO: Update the marker object to make the marker draggable. *Hint: reference the docs!

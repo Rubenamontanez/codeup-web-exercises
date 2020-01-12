@@ -4,69 +4,80 @@
     <meta charset="UTF-8">
     <title>Weather Map</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         #map {
             /* the width and height may be set to any size */
             width: 100%;
-            height: 700px;
+            height: 400px;
         }
+
+        .coordinates {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            position: absolute;
+            bottom: 40px;
+            left: 10px;
+            padding: 5px 10px;
+            margin: 0;
+            font-size: 11px;
+            line-height: 18px;
+            border-radius: 3px;
+            display: none;
+        }
+
     </style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-light bg-light">
-<!--    <a class="navbar-brand">Navbar</a>-->
-    <span id="time" class="navbar-brand mb-0 h1">Weather Application</span>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-</nav>
+    <nav class="navbar navbar-light bg-light">
+        <span id="time" class="navbar-brand mb-0 h1">Weather Application</span>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search by city" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
 
-        <nav class="navbar navbar-light bg-light">
+    <div class="container">
+            <div class="row text-center">
+                <!--todays weather-->
+                    <div class="col-xs-12 col-md-4 ">
+                <!--        creates shadow behind the card-->
+                        <div class="card shadow p-3 mb-5 bg-white rounded">
+                <!--Where information will be placed-->
+                            <div id="day1" class="card-body"></div>
+                        </div>
+                    </div>
 
-        </nav>
-    <div class="row text-center">
-        <!--todays weather-->
-            <div class="col-xs-12 col-md-4 mb-1">
-        <!--        creates shadow behind the card-->
-                <div class="card shadow p-3 mb-5 bg-white rounded">
-        <!--Where information will be placed-->
-                    <div id="day1" class="card-body"></div>
-                </div>
+                <!--tomorrows weather-->
+                    <div class="col-xs-12 col-md-4 ">
+                <!--        creates shadow behind the card-->
+                        <div class="card shadow p-3 mb-5 bg-white rounded">
+                <!--Where information will be placed-->
+                            <div id="day2" class="card-body"></div>
+                        </div>
+                    </div>
+                <!--3rd days weather-->
+                    <div class="col-xs-12 col-md-4 ">
+                <!--        creates shadow behind the card-->
+                        <div class="card shadow p-3 mb-5 bg-white rounded">
+                            <!--Where information will be placed-->
+                            <div id="day3" class="card-body"></div>
+                        </div>
+                    </div>
             </div>
-
-        <!--tomorrows weather-->
-            <div class="col-xs-12 col-md-4 mb-1">
-        <!--        creates shadow behind the card-->
-                <div class="card shadow p-3 mb-5 bg-white rounded">
-        <!--Where information will be placed-->
-                    <div id="day2" class="card-body"></div>
-                </div>
-            </div>
-        <!--3rd days weather-->
-            <div class="col-xs-12 col-md-4 mb-1">
-        <!--        creates shadow behind the card-->
-                <div class="card shadow p-3 mb-5 bg-white rounded">
-
-        <!--Where information will be placed-->
-                    <div id="day3" class="card-body"></div>
-                </div>
-            </div>
+            <div id='map'></div>
+        <pre id="coordinates" class="coordinates"></pre>
     </div>
-        <div id='map'></div>
 
 
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+        <script src="JS/keys.js"></script>
+        <script src="JS/mapbox-geocoder-utils.js"></script>
 
 
-
-        <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-        <script src="js/keys.js"></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-<script src="JS/mapbox-geocoder-utils.js"></script>
         <script>
             (function() {
                 "use strict";
@@ -76,47 +87,39 @@
                     console.log(data);
 
 
-                    var dateObject = new Date(data.currently.time * 1000);
-                    console.log(dateObject.toString());
-                    $("#time").append(
-                        "<p>"+ dateObject + "</p>"
-                    );
+                    var dateObject = new Date(data.daily.data[0].time * 1000);
 
-                    var icons = new Skycons({"color": "orange"});
-                    icons.set("clear-day", Skycons.CLEAR_DAY);
-                    icons.set("clear-night", Skycons.CLEAR_NIGHT);
-                    icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
-                    icons.set("partly-cloudy-night", Skycons.PARTLY_CLOUDY_NIGHT);
-                    icons.set("cloudy", Skycons.CLOUDY);
-                    icons.set("rain", Skycons.RAIN);
-                    icons.set("sleet", Skycons.SLEET);
-                    icons.set("snow", Skycons.SNOW);
-                    icons.set("wind", Skycons.WIND);
-                    icons.set("fog", Skycons.FOG);
-                    icons.play();
+                    var today = new Date();
+                    var day = today.getDay();
+                    var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
 
 
 
                     $("#day1").append(
-                        "<p>"+ "High/Low" + "</p>" +
-                        "<h2>" + Math.ceil(data.daily.data[0].temperatureLow) + "&#176;" + "/" + Math.ceil(data.daily                       .data[0].temperatureHigh) + "&#176;" + "</h2>" +
-
+                        "<p>"+ daylist[day] + "</p>" +
+                        "<p'>"+ "High/Low" + "</p>" +
+                        "<h2>" + Math.floor(data.daily.data[0].temperatureHigh) + "&#176;" + "/" + Math.floor(data.daily.data[0].temperatureLow) + "&#176;" + "</h2>" +
+                        "<p>"+ data.currently.icon + "</p>" +
                         "<p>" + "<b>Humidity:</b> " + data.currently.humidity * 100 + "</p>" +
                         "<p>" + "<b>Wind:</b> " + data.currently.windSpeed + "</p>" +
                         "<div>" + "<b>Pressure:</b> " + data.currently.pressure + "</div>"
                     );
 
                     $("#day2").append(
+                        "<p>"+ daylist[day + 1] + "</p>" +
                         "<p>"+ "High/Low" + "</p>" +
-                        "<h2>" + Math.ceil(data.daily.data[1].temperatureLow) + "&#176;" + "/" + Math.ceil(data.daily.data[1].temperatureHigh) + "&#176;" + "</h2>" +
+                        "<h2>" + Math.floor(data.daily.data[1].temperatureHigh) + "&#176;" + "/" + Math.floor(data.daily.data[1].temperatureLow) + "&#176;" + "</h2>" +
+                        "<p>"+ data.daily.data[1].icon + "</p>" +
                         "<p>" + "<b>Humidity:</b> " + data.daily.data[1].humidity * 100 + "</p>" +
                         "<p>" + "<b>Wind:</b> " + data.daily.data[1].windSpeed + "</p>" +
                         "<div>" + "<b>Pressure:</b> " + data.daily.data[1].pressure + "</div>"
                     );
 
                     $("#day3").append(
+                        "<p>"+ daylist[day + 2] + "</p>" +
                         "<p>"+ "High/Low" + "</p>" +
-                        "<h2>" + Math.ceil(data.daily.data[2].temperatureLow) + "&#176;" + "/" + Math.ceil(data.daily.data[1].temperatureHigh) + "&#176;" + "</h2>" +
+                        "<h2>" + Math.floor(data.daily.data[2].temperatureHigh) + "&#176;" + "/" + Math.floor(data.daily.data[1].temperatureLow) + "&#176;" + "</h2>" +
+                        "<p>"+ data.daily.data[2].icon + "</p>" +
                         "<p>" + "<b>Humidity:</b> " + data.daily.data[2].humidity * 100 + "</p>" +
                         "<p>" + "<b>Wind:</b> " + data.daily.data[2].windSpeed + "</p>" +
                         "<div>" + "<b>Pressure:</b> " + data.daily.data[2].pressure + "</div>"
@@ -125,25 +128,48 @@
 
                 });
 
+
                   //mapbox setup
 
                   mapboxgl.accessToken = mapboxtoken;
+                var coordinates = document.getElementById('coordinates');
                 var map = new mapboxgl.Map({
-                      container: 'map',
-                     style: 'mapbox://styles/mapbox/light-v10',
-                     zoom: 5,
-                   center: [-98.4916, 29.4252]
-                 });
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: [0, 0],
+                    zoom: 2
+                });
+                var markerOptions ={
+                    color: "red",
+                    draggable:true,
+                    };
 
 
+
+                var marker = new mapboxgl.Marker({
+                    draggable: true
+                })
+                    .setLngLat([0, 0])
+                    .addTo(map);
+
+                function onDragEnd() {
+                    var lngLat = marker.getLngLat();
+                    coordinates.style.display = 'block';
+                    coordinates.innerHTML =
+                        'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+                }
+
+                marker.on('dragend', onDragEnd);
+
+                var newlocation= "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkysKey + "/" + lngLat.lng + "," + lngLat.lat;
 
 
 
             })();
         </script>
-<!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>-->
-<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
 </html>
