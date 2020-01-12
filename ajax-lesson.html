@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+</head>
+<body>
+
+<div id= "makeup"></div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script>
+"use strict";
+
+$.ajax("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
+    .done(function (obj) {
+        console.log(obj);
+        $("#makeup").append(
+            "<p>"+ obj.brand + "</p>"
+    );
+
+});
+$.ajax("https://pokeapi.co/api/v2/pokemon/pikachu")
+    .done(function (resp) {
+        console.log(resp.name);
+    });
+$.ajax("https://pokeapi.co/api/v2/pokemon/36")
+    .done(function (data, status, jqXhr) {
+        console.log(data.name);
+        console.log(status);
+        console.log(jqXhr);
+    })
+// Assign to variable
+var jqXhr = $.ajax("https://swapi.co/api/people/1/");
+
+// Attach callback functions individually
+jqXhr.done(function(data, status, jqXhr) {
+    console.log("Everything went great!");
+});
+
+jqXhr.fail(function(jqXhr, status, error) {
+    console.log("There was an error!");
+});
+
+jqXhr.always(function() {
+    console.log("finally");
+});
+</script>
+</body>
+</html>
