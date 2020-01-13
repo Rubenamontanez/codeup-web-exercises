@@ -69,17 +69,12 @@
 
 
         <script>
-
-            $(document).ready(function() {
+            (function() {
                 "use strict";
 
-               var newcoords = ("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkysKey + "/29.7604,-95.3698");
 
-
-                 });
-
-
-
+                $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkysKey + "/29.7604,-95.3698",
+                    {}).done(function (data) {
 
 
                     // mapbox setup
@@ -117,7 +112,7 @@
                     $("#day1").append(
                         "<p>" + daylist[day] + "</p>" +
                         "<p'>" + "High/Low" + "</p>" +
-                        "<h2>" + Math.floor(newcoords.data[0].temperatureHigh) + "&#176;" + "/" + Math.floor(data.daily.data[0].temperatureLow) + "&#176;" + "</h2>" +
+                        "<h2>" + Math.floor(data.daily.data[0].temperatureHigh) + "&#176;" + "/" + Math.floor(data.daily.data[0].temperatureLow) + "&#176;" + "</h2>" +
                         "<p>" + data.currently.icon + "</p>" +
                         "<p>" + "<b>Humidity:</b> " + data.currently.humidity * 100 + "</p>" +
                         "<p>" + "<b>Wind:</b> " + data.currently.windSpeed + "</p>" +
@@ -145,7 +140,7 @@
                     );
 
 
-
+                });
 
                 var iconArray = [{
                     link: "animated/day.svg",
@@ -209,7 +204,7 @@
 
 
 
-
+            })();
         </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
