@@ -30,13 +30,20 @@
 
 
 <script>
-    function addGift() {
-        // var gift = document.forms.giftForm.gift.value;
-        var gift = document.getElementById("input").value;
-        gifts.push(input);
-        renderWishList(); // wipes out wish list, refills it with gifts array
-        document.getElementById("gift").value = "";
-    }
+   var form = document.getElementById('main');
+   var itemList = document.getElementById('favorite-food');
+   function addItem(e) {
+       e.preventDefault()
+   //    get input value
+       var newItem = documet.getElementById('input').value;
+   //    create new li element
+       var li =document.createElement('li');
+       li.appendChild(document.createTextNode(newItem));
+       itemList.appendChild(li);
+
+   };
+
+
 </script>
 </body>
 </html>

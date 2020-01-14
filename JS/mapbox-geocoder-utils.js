@@ -13,7 +13,7 @@
  *  })
  *
  */
-function geocode(search, mapboxtoken) {
+function geocode(search, token) {
     var baseUrl = 'https://api.mapbox.com';
     var endPoint = '/geocoding/v5/mapbox.places/';
     return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
@@ -39,7 +39,7 @@ function geocode(search, mapboxtoken) {
  *  })
  *
  */
-function reverseGeocode(coordinates, mapboxtoken) {
+function reverseGeocode(coordinates, token) {
     var baseUrl = 'https://api.mapbox.com';
     var endPoint = '/geocoding/v5/mapbox.places/';
     return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
