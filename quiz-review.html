@@ -1,49 +1,158 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>DOM Review</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--    <div id="main">-->
+<!--        <input type="text" id="input">-->
+<!--        <button id="add-to-list">Add to List</button>-->
+
+<!--        <h4>Favorite Food:</h4>-->
+<!--        <ul id="favorite-food">-->
+<!--            <li>Ramen</li>-->
+<!--            <li>Sushi</li>-->
+<!--            <li>Curry</li>-->
+<!--        </ul>-->
+
+<!--        <h4 id="change-me">Change Me</h4>-->
+
+<!--        <h4>My Cohort: <span id="my-cohort"></span></h4>-->
+<!--        <input type="text" id="cohort-name">-->
+<!--        <button id="change-cohort">Update</button>-->
+
+<!--        <br>-->
+<!--        <button id="highlight">Highlight</button>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div id="box"></div>-->
+<!--<script src="https://code.jquery.com/jquery-2.2.4.js"></script>-->
+<!--<script>-->
+
+<!--    // Allow the user to type in their favorite food into the input and append it to the list once the button is clicked.-->
+<!--    $('#add-to-list').click(function(){-->
+<!--        $('#favorite-food').append($('<li>', {-->
+<!--            text: $('#input').val()-->
+<!--        }));-->
+<!--    });-->
+<!--    // When the heading 'Change Me' is double clicked, change its background-color to purple.-->
+<!--    $("#change-me").dblclick(function() {-->
+<!--        $(this).css('background-color','purple');-->
+
+<!--    });-->
+
+<!--    // Allow the user to input their cohort name. Once Update button is clicked, the text should should update with the name of the cohort.-->
+<!--    $("#change-cohort").click(function () {-->
+<!--    $("#my-cohort").html($("#cohort-name").val())-->
+<!--    });-->
+
+<!--    // When 'Highlight' button is clicked, change the background color of the cohort name to yellow.-->
+<!--       document.getElementById("highlight").addEventListener("click", yellowBackground);-->
+<!--        function yellowBackground() {-->
+<!--            document.getElementById("my-cohort").style.backgroundColor = 'yellow';-->
+<!--        }-->
+
+<!--        // Write some JavaScript that changes the background-color of the container to pink after 3 seconds.-->
+<!--        //        $( "#container" ).fadeIn( 1000, function() {-->
+<!--        //               $(this).css('background-color','pink');-->
+<!--        //                });-->
+<!--    -->
+<!--            setTimeout(function(){-->
+<!--                document.body.style.backgroundColor = "pink"-->
+<!--            }, 3000);-->
+<!--    // Create a page with a clickable element that, when clicked, changes the background color to a randomly selected color. You can use jquery but you don’t have to-->
+
+<!--    var CSS_COLOR_NAMES = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];-->
+
+<!--    $('#box')-->
+<!--        .css({-->
+<!--            "height" : "300px",-->
+<!--            "width" : "300px",-->
+<!--            "background" : "firebrick",-->
+<!--            "border-radius" : "20%"-->
+<!--        })-->
+<!--        .click(function() {-->
+<!--            var randomIndex = Math.floor(Math.random() * CSS_COLOR_NAMES.length);-->
+<!--            $(this).css("background", CSS_COLOR_NAMES[randomIndex]);-->
+<!--        })-->
+
+
+
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DOM Review</title>
+    <title>Title</title>
+    <style>
+    </style>
 </head>
 <body>
-<div class="container">
-    <div id="main">
-        <input type="text" id="input">
-        <button id="add-to-list">Add to List</button>
-
+<div id="page">
+    <h1 class="foo">Codeup Rocks!</h1>
+    <h2 onclick = "this.innerHTML = 'OOpps'">Click on this text!</h2>
+    <h2 id ="sub-header" class="something">Buy groceries</h2>
+    <ul id = "myList">
         <h4>Favorite Food:</h4>
-        <ul id="favorite-food">
-            <li>Ramen</li>
-            <li>Sushi</li>
-            <li>Curry</li>
-        </ul>
+        <li id="one"><em>fresh</em>figs</li>
+        <li id="two" class="hot">pine nuts</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">balsamic vinegar</li>
+        <li id="five">Ramen</li>
+        <li id="six">Sushi</li>
+        <li id="seven">Curry</li>
+    </ul>
+    <button>Switch colors?</button>
+    <button type="button" onclick="chBackcolor('red')">Let's see if this works!</button>
+    <button id="btn" type="button">Try it</button>
+    <button onclick="myFunction()">Add to list</button>
+    <input onclick="change()" type="button" value="Open Curtain" id="myButton1">
 
-        <h4 id="change-me">Change Me</h4>
-
-        <h4>My Cohort: <span id="my-cohort"></span></h4>
-        <input type="text" id="cohort-name">
-        <button id="change-cohort">Update</button>
-
-        <br>
-        <button id="highlight">Highlight</button>
-    </div>
 </div>
-
-
 <script>
-   var form = document.getElementById('main');
-   var itemList = document.getElementById('favorite-food');
-   function addItem(e) {
-       e.preventDefault()
-   //    get input value
-       var newItem = documet.getElementById('input').value;
-   //    create new li element
-       var li =document.createElement('li');
-       li.appendChild(document.createTextNode(newItem));
-       itemList.appendChild(li);
-
-   };
+    myVar = setTimeout(function(){
+      document.body.style.backgroundColor = "pink"
+       }, 3000);
 
 
-</script>
+    function chBackcolor(color) {
+        document.body.style.background = color;
+    }
+
+   function myFunction(){
+       var node = document.createElement('li');
+         var textnode = document.createTextNode("Water");
+         node.appendChild(textnode);
+      document.getElementById("myList".appendChild(node));
+    }
+    function myFunction() {
+        var node = document.createElement("li");
+        var textnode = document.createTextNode("Water");
+           node.appendChild(textnode);
+          document.getElementById("myList").appendChild(node);
+        }
+    var button = document.querySelector("button");
+    var isColored = false;
+    button.addEventListener("click", function() {
+        })
+  if (isColored) {
+  isColored = false;
+          } else {
+              document.body.style.background = "blue";
+              isColored = true;
+          }
+    function change() {
+          document.getElementById("myButton1").value = "Close Curtain";
+        }
+    document.getElementById('btn').onclick = function() {
+           document.getElementById('three').innerHTML = 'Hey There';
+        }
+   </script>
 </body>
 </html>
