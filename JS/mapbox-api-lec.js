@@ -80,7 +80,7 @@
 
 // TODO TOGETHER: Using the Geocoder helper function, log the coordinates of Codeup and recenter the map to focus on Codeup. Comment out previous map code.
 
-  mapboxgl.accessToken = mapboxtoken;
+  mapboxgl.accessToken = mapboxToken;
     var mapOptions = {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
@@ -90,7 +90,7 @@
 
     var map = new mapboxgl.Map (mapOptions);
 
-geocode("The Alamo, San Antonio TX, 78205",mapboxtoken).then(function(result){
+geocode("The Alamo, San Antonio TX, 78205",mapboxToken).then(function(result){
     map.setCenter(result)
     map.setZoom(20)
 })
@@ -101,8 +101,8 @@ geocode("The Alamo, San Antonio TX, 78205",mapboxtoken).then(function(result){
 
 
 // TODO TOGETHER: Reverse Geocoding: Using the reverse geocoding method, enter the coordinates {lng: -98.4861, lat: 29.4260} to get a physical address for the alamo
-reverseGeocode({lng: -98.4861, lat: 29.4260}, mapboxtoken).then(function (result) {
-    console.log(result);
+reverseGeocode({lng: -98.4936, lat: 29.4241},mapboxToken).then(function (result) {
+    console.log(result.p);
 })
 
 // TODO: Reverse geocode coordinates of your choice using the reverse geocode method
