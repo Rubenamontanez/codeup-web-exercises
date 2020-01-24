@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6</title>
+    <script src="JS/es6.js"></script>
+
+</head>
+<body>
+
+<div> </div>
+
+<script>
+
+    // // old way
+    // Math.pow(2, 8) // === 256
+    // // new syntax
+    // 2 ** 8 // === 256
+    //
+    // console.log(2 ** 8);
+
+    // loop through i for 2 to the 8th power
+        // for(let i = 0; i<16; i ++){
+        //     console.log(2 ** i);
+        // };
+//     do not use var anymore LET replaces var const will never change
+
+    // function explore(){
+    //     var a = 1;
+    //     let b = 2;
+    //     console.log(a);
+    //     console.log(b);
+    //     // do not refererence a var before assigning it
+    // }
+    // explore();
+
+    // without block scope
+    // if (true) {
+    //     var name = 'codeup';
+    // }
+    // console.log(name); // 'codeup'
+
+    //  with block scope
+    if (true) {
+        let name = 'codeup';
+    }
+    console.log(name); // undefined
+
+    // with block scope
+    // for (let i = 0; i < 10; i++) {
+    //     // ...
+    // }
+    // console.log(i); // undefined
+
+    const fruits = ["apple", "orange", "banana", "pineapple", "kiwis"];
+
+    fruits.push("mango");
+    fruits[0] = "lemon";
+
+    for ( let i = 0; i<fruits.length; i++){
+
+    }
+    // same thing just a different way to do it
+    for ( let fruit of fruits ){
+        console.log(fruit);
+    }
+
+    let dog = {
+        name:"dog",
+        breed: "chihuahua"
+    }
+    console.log("our " + dog.breed + " is named " + dog.name + ".");
+    console.log(`our ${dog.breed} is named ${dog.name}. `)
+
+    // document.getElementById("message").innerHTML = `<p>our ${dog.breed} is named ${dog.name}.</p>
+    // <p> Hes a good dog</p>`;
+
+const ourFunction = function(name) {
+    console.log(`Hello ${name}!`);
+}
+    ourFunction("Europa");
+
+const newFunction = name => {
+        console.log(`Hello ${name}!`);
+    }
+    newFunction("Europa");
+
+    const newHello = (name ="codeup")  => `Hello, ${name}!`;
+    console.log(newHello);
+    console.log(newHello());
+</script>
+</body>
+</html>
