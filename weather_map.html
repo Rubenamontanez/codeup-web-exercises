@@ -36,6 +36,195 @@
     </style>
 </head>
 <body>
+ Ajax
+
+Ajax
+
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search by city" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+    <div class="container">
+            <div class="row text-center">
+                    <div class="col-xs-12 col-md-4 ">
+                        <div class="card shadow p-3 mb-5 bg-white rounded">
+                            <div id="day1" class="card-body"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4 ">
+                        <div class="card shadow p-3 mb-5 bg-white rounded">
+                            <div id="day2" class="card-body"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4 ">
+                        <div class="card shadow p-3 mb-5 bg-white rounded">
+
+                            <div id="day3" class="card-body"></div>
+                        </div>
+                    </div>
+            </div>
+            <div id='map'></div>
+        <pre id="coordinates" class="coordinates"></pre>
+    </div>
+
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+        <script src="JS/keys.js"></script>
+<!--        <script src="JS/mapbox-geocoder-utils.js"></script>-->
+
+
+        <script>
+            (function() {
+                "use strict";
+
+
+                $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkysKey + "/29.7604,-95.3698",
+                    {}).done(function (data) {
+
+
+                    // mapbox setup
+
+                    mapboxgl.accessToken = mapboxtoken;
+                    var coordinates = document.getElementById('coordinates');
+                    var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/mapbox/streets-v11',
+                        center: [-90.097913, 29.972364],
+                        zoom: 5
+                    });
+                    var markerOptions = {
+                        color: "red",
+                        draggable: true,
+                    };
+
+                    var marker = new mapboxgl.Marker({
+                        draggable: true
+                    })
+                        .setLngLat([-90.097913, 29.972364])
+                        .addTo(map);
+
+
+
+
+
+                    // var dateObject = new Date(data.daily.data[0].time * 1000);
+
+                    var today = new Date();
+                    var day = today.getDay();
+                    var daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
+
+
+                    $("#day1").append(
+                        "<p>" + daylist[day] + "</p>" +
+                        "<p'>" + "High/Low" + "</p>" +
+                        "<h2>" + Math.floor(data.daily.data[0].temperatureHigh) + "&#176;" + "/" + Math.floor(data.daily.data[0].temperatureLow) + "&#176;" + "</h2>" +
+                        "<p>" + data.currently.icon + "</p>" +
+                        "<p>" + "<b>Humidity:</b> " + data.currently.humidity * 100 + "</p>" +
+                        "<p>" + "<b>Wind:</b> " + data.currently.windSpeed + "</p>" +
+                        "<div>" + "<b>Pressure:</b> " + data.currently.pressure + "</div>"
+                    );
+
+                    $("#day2").append(
+                        "<p>" + daylist[day + 1] + "</p>" +
+                        "<p>" + "High/Low" + "</p>" +
+                        "<h2>" + Math.floor(data.daily.data[1].temperatureHigh) + "&#176;" + "/" + Math.floor(data.daily.data[1].temperatureLow) + "&#176;" + "</h2>" +
+                        "<p>" + data.daily.data[1].icon + "</p>" +
+                        "<p>" + "<b>Humidity:</b> " + data.daily.data[1].humidity * 100 + "</p>" +
+                        "<p>" + "<b>Wind:</b> " + data.daily.data[1].windSpeed + "</p>" +
+                        "<div>" + "<b>Pressure:</b> " + data.daily.data[1].pressure + "</div>"
+                    );
+
+                    $("#day3").append(
+                        "<p>" + daylist[day + 2] + "</p>" +
+                        "<p>" + "High/Low" + "</p>" +
+                        "<h2>" + Math.floor(data.daily.data[2].temperatureHigh) + "&#176;" + "/" + Math.floor(data.daily.data[1].temperatureLow) + "&#176;" + "</h2>" +
+                        "<p>" + data.daily.data[2].icon + "</p>" +
+                        "<p>" + "<b>Humidity:</b> " + data.daily.data[2].humidity * 100 + "</p>" +
+                        "<p>" + "<b>Wind:</b> " + data.daily.data[2].windSpeed + "</p>" +
+                        "<div>" + "<b>Pressure:</b> " + data.daily.data[2].pressure + "</div>"
+                    );
+
+
+                });
+
+                var iconArray = [{
+                    link: "animated/day.svg",
+                    name: "clear-day"
+                },
+                    {
+                        link: "icons/SVG/Moon-Waxing-Crescent.svg",
+                        name: "clear-night"
+                    },
+                    {
+                        link: "icons/SVG/Cloud-Rain.svg",
+                        name: "rain"
+                    },
+                    {
+                        link: "icons/SVG/Cloud-Snow-Sun",
+                        name: "snow"
+                    },
+                    {
+                        link: "icons/SVG/Cloud-Snow-Alt.svg",
+                        name: "sleet"
+                    },
+                    {
+                        link: "icons/SVG/Wing.svg",
+                        name: "wind"
+                    },
+                    {
+                        link: "icons/SVG/Cloud-Fog.svg",
+                        name: "fog"
+                    },
+                    {
+                        link: "icons/SVG/Cloud-Sun.svg",
+                        name: "cloudy"
+                    },
+                    {
+                        link: "icons/SVG/Cloud-Sun.svg",
+                        name: "partly-cloudy-day"
+                    },
+                    {
+                        link: "icons/SVG/Cloud-Moon.svg",
+                        name: "party-cloudy-night"
+                    }];
+
+                // function to change icons
+                function weatherIcon(icon, apiIcon) {
+                    for (var i = 0; i < iconArray.length; i++) {
+                        if (iconArray[i].name === apiIcon) {
+                            return iconArray[i].link
+
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+
+
+=======
+<nav class="sticky-top navbar navbar-light" style="background-color: whitesmoke;">
+    <h1>Weather Map</h1>
+    <h1 class ="city">San Antonio, Tx</h1>
+<!--    <p id = "state"></p>-->
+    <form class="form-inline">
+        <input id="userInput"  class="form-control" type="text" placeholder=" City, State, or ZIP code">
+        <button id="submit" type="button" class="btn btn-dark">Submit</button>
+    </form>
+    </nav>
+
+
+<div class="container">
+    <div class="card-group m-1 " id="weather"></div>
+    <div id='map'></div>
+=======
 <!--        nav bar -->
         <nav class="sticky-top navbar navbar-light" style="background-color: whitesmoke;">
             <h1>Weather Map</h1>
@@ -49,6 +238,7 @@
             <div class="container">
             <div class="card-group m-1 " id="weather"></div>
             <div id='map'></div>
+ master
 </div>
 
 
@@ -203,6 +393,7 @@ marker.on('dragend', onDragEnd);
             $('.city').html(location.charAt(0).toUpperCase() + location.slice(1, location.length));
             marker.setLngLat([longitude, latitude]);
             console.log(location.charAt(0).toUpperCase() + location.slice(1, location.length));
+master
 
         });
     });
