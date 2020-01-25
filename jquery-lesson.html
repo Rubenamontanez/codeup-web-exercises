@@ -24,20 +24,11 @@
 <script>
     (function (){
         "use strict";
-        $(document).ready(function () {
-            // alert("Look, we're using jQuery");
-            // document.getElementById("button").addEventListener("click", function () {
-            //     alert("you clicked the button")
-            // });
-            //   $(#button.click(function () {
-            //     alert("you clicked the button")
-            //   });
-            $('#new').css('background-color', 'yellow');
-            $('.even').css('font-size', '2em');
-            $('.odd').css('font-size', '1.5em');
-            $('.green').css('color', 'green');
-            $('.blue').css('color', 'blue');
-        })
+
+        let numbers = [1, 2, 3, 4, 5];
+        numbers.map(n => n * 3);
+        console.log(numbers);
+
     })();
 </script>
 
