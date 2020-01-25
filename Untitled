@@ -1,3 +1,6 @@
+
+
+
 // Define a function named isString that takes in a value and returns a boolean if the argument provided is a string or not.
 
 function isString(x){
@@ -102,7 +105,6 @@ console.log(isNegative("yes")); //false
 console.log(isNegative(false)); //false
 console.log(isNegative(true)); //false
 console.log(isNegative("5")); //false
-
 
 
 
