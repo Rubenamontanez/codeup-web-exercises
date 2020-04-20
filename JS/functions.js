@@ -8,12 +8,11 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
-// let sayHello = function (name) {
-//     return "Hello, " + name + "!";
-// };
-const sayHello =(name) => 'Hello, ' + name + "!";
+function sayHello(input) {
+    return "Hello, " + input;
+}
 
-console.log(sayHello("codeup")); // returns "Hello, codeup!"
+console.log(sayHello("codeup" + "!"));
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -21,8 +20,9 @@ console.log(sayHello("codeup")); // returns "Hello, codeup!"
  *
  * console.log 'helloMessage' to check your work
  */
-console.log(sayHello("Ruben"));
-// console.log(helloMessage);
+let helloMessage = sayHello("Ruben");
+console.log(helloMessage);
+
 /**
  * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
@@ -30,13 +30,13 @@ console.log(sayHello("Ruben"));
  * console.
  */
 let myName = "Ruben";
+sayHello(myName);
 console.log(sayHello(myName));
-
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
-
+console.log(random);
 /**
  * TODO:
  * Create a function called 'isTwo' that takes a number as a parameter.
@@ -54,16 +54,10 @@ var random = Math.floor((Math.random() * 3) + 1);
  * different result everytime you refresh the page if you are using the random
  * number)
  */
-const isTwo = (num) =>
-    num % 2 === 0;
-
-
-
-console.log(isTwo(1)); // returns false
-console.log(isTwo(2)); // returns true
-console.log(isTwo(3)); // returns false
-console.log(random);
-console.log(isTwo(random));
+let isTwo= function (num) {
+    return num ===2;
+}
+console.log(isTwo(random))
 
 /**
  * TODO:
@@ -76,14 +70,16 @@ console.log(isTwo(random));
  * > calculateTip(0.25, 25.50) // returns 6.37
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
+function calculateTip (billTotal, tipPercent){
+    return billTotal * tipPercent
+}
+console.log(calculateTip(  .20, 20));
 
-    const calculateTip = (tipPercentage, totalBill) =>
-    tipPercentage * totalBill;
-
-console.log(calculateTip(0.20, 20)) // returns 4
-console.log(calculateTip(0.25, 25.50)) // returns 6.375
-console.log(calculateTip(0.15, 33.42)) // returns 5.013
-
+let totalBill = function (billTotal, tipPercent) {
+    let tip = billTotal * tipPercent;
+    return tip + billTotal;
+}
+console.log(totalBill(20, .20));
 
 /**
  * TODO:
@@ -91,13 +87,14 @@ console.log(calculateTip(0.15, 33.42)) // returns 5.013
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
-
-let tipPercentage = parseFloat(prompt("what tip % would you like to leave (0.00-1.00)"));
-let totalBill = parseFloat(prompt("What is your bill total"));
-let tipAmount = parseFloat(alert("your tip amount is $" + calculateTip(tipPercentage,totalBill)));
-
-let finalBill = parseFloat(alert("your final bill is " + tipAmount + totalBill));
-
+let billTotal = parseFloat(prompt("what was your bill total"));
+console.log(billTotal);
+let tipPercent = parseFloat( prompt("How much would you like to tip"));
+console.log(tipPercent);
+let amountTip = alert("Amount to tip is $" + calculateTip(billTotal,tipPercent));
+let total = totalBill(billTotal, tipPercent)
+console.log(total)
+alert(total);
 
 /**
  * TODO:
@@ -113,12 +110,13 @@ let finalBill = parseFloat(alert("your final bill is " + tipAmount + totalBill))
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
-var applyDiscount = function (price, discountPercentage) {
-    var discountAmount = price * discountPercentage;
+let price = 100;
+let discount = .2;
+
+let applyDiscount = function (price, discount) {
+    let discountAmount = price * discount;
     return price - discountAmount;
 }
-var originalPrice = 100;
-var dicountPercent = .2; // 20%
-// console.log(applyDiscount(originalPrice, dicountPercent)) // 80
-// console.log(applyDiscount(45.99, 0.12)) // 40.4712
-// console.log(applyDiscount(100, 32))
+applyDiscount(45.99, .2);
+
+console.log(applyDiscount(45.99,.12));
